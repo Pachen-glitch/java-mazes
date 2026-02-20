@@ -5,8 +5,8 @@
 En este laboratorio van a implementar un algoritmo para resolver laberintos usando **Búsqueda en Amplitud (BFS)** o **Búsqueda en Profundidad (DFS)**. Van a ver su solver ejecutarse en tiempo real, observando cómo explora el laberinto celda por celda en la terminal. Al final, vamos a comparar ambos enfoques sobre el mismo laberinto para ver cómo la elección de estructura de datos lo cambia todo.
 
 ```
-   Grupo A → BFS usando una Cola / Queue (FIFO)
-   Grupo B → DFS usando una Pila / Stack (LIFO)
+   BFS usando una Cola / Queue (FIFO)
+   DFS usando una Pila / Stack (LIFO)
 ```
 
 ---
@@ -18,12 +18,12 @@ En este laboratorio van a implementar un algoritmo para resolver laberintos usan
 
 ### Archivos que Reciben
 
-| Archivo | Descripción |
-|---|---|
-| `MazeSolver.java` | La interfaz que deben implementar. **No modificar.** |
-| `MazeManager.java` | El generador de laberintos y visualizador. **No modificar.** |
-| `BFSSolver_Template.java` | Plantilla para el **Grupo A**. Renombrar a `BFSSolver.java` antes de empezar. |
-| `DFSSolver_Template.java` | Plantilla para el **Grupo B**. Renombrar a `DFSSolver.java` antes de empezar. |
+| Archivo | Descripción                                                                                |
+|---|--------------------------------------------------------------------------------------------|
+| `MazeSolver.java` | La interfaz que deben implementar. **No modificar.**                                       |
+| `MazeManager.java` | El generador de laberintos y visualizador. **No modificar.**                               |
+| `BFSSolver_Template.java` | Plantilla para el **Breadth Frist Search**. Renombrar a `BFSSolver.java` antes de empezar. |
+| `DFSSolver_Template.java` | Plantilla para el **Depth First Search**. Renombrar a `DFSSolver.java` antes de empezar.   |
 
 ### Primeros Pasos
 
@@ -146,7 +146,7 @@ java MazeManager --solver BFSSolver --delay 50   # Rápido
 java MazeManager --solver BFSSolver --seed 42
 ```
 
-### Modo Comparación (después de que ambos grupos terminen)
+### Modo Comparación
 ```bash
 java MazeManager --compare BFSSolver DFSSolver
 java MazeManager --compare BFSSolver DFSSolver --size 31 --delay 80
@@ -158,12 +158,12 @@ java MazeManager --compare BFSSolver DFSSolver --size 31 --delay 80
 
 Cuando su solver se ejecute, van a ver cómo las celdas se iluminan conforme son exploradas, y el camino final se resalta en verde cuando termina.
 
-### Comportamiento de BFS (Grupo A)
+### Comportamiento de BFS
 - La exploración se expande hacia afuera como una **ola** desde el inicio
 - Todas las celdas a distancia N se exploran antes que cualquier celda a distancia N+1
 - El camino encontrado es **siempre el más corto**
 
-### Comportamiento de DFS (Grupo B)
+### Comportamiento de DFS
 - La exploración **se mete a fondo** por un pasillo antes de retroceder
 - Puede explorar celdas lejanas antes que las cercanas
 - El camino encontrado **no necesariamente es el más corto**
@@ -193,7 +193,6 @@ Cuando ejecutemos `--compare`, ambos solvers atacan el mismo laberinto simultán
 ## Retos Extra
 
 - **Bonus 1:** Agreguen un contador de pasos dentro de su solver e imprímanlo al final
-- **Bonus 2:** Después del lab, implementen el OTRO algoritmo (el grupo BFS intenta DFS y viceversa) — les debería tomar unos 2 minutos porque solo cambian 2 líneas
 - **Bonus 3:** Implementen búsqueda A* — creen `AStarSolver.java` implementando `MazeSolver`, usando un `PriorityQueue` ordenado por `distancia + heurística`
 
 ---
